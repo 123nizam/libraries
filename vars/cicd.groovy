@@ -9,12 +9,12 @@ def buildArtifact()
 
 }
 
-def deployTomcat(ip,context)
+def deployTomcat(JOB_NAME,ip,context)
 {
     sh "scp /var/lib/jenkins/workspace/${JOB_NAME}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat10/webapps/${context}.war"
 }
 
-def executeSelenium()
+def executeSelenium(JOB_NAME)
 {
    sh "java -jar /var/lib/jenkins/workspace/${JOB_NAME}/testing.jar"
 }
